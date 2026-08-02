@@ -1,4 +1,4 @@
-import { PaymentIcon, PlayIcon } from '../Icons'
+import { PlayIcon } from '../Icons'
 import { paymentMethods, stats, whyChooseUs } from '../data'
 
 export function Payments() {
@@ -6,7 +6,7 @@ export function Payments() {
     <section className="max-w-7xl mx-auto px-6 lg:px-10 py-16 border-t hairline text-center">
       <p className="eyebrow text-xs font-bold text-brand-blue uppercase">100% Secure Checkout</p>
       <h2 className="mt-2 font-display font-extrabold text-2xl sm:text-3xl text-brand-ink">
-        We accept all major payment methods
+        We accept major payment methods
       </h2>
       <p className="mt-2 text-sm text-slate-500">Pay your way. Fast, safe and verified.</p>
 
@@ -14,7 +14,7 @@ export function Payments() {
         {paymentMethods.map((m) => (
           <div key={m.title} className="w-40 rounded-2xl bg-brand-sky p-5 flex flex-col items-center gap-2">
             <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-brand-blue shadow-sm">
-              <PaymentIcon name={m.icon} />
+              <img src={m.logo} alt={`${m.title} official logo`} className="w-8 h-8 object-contain" loading="lazy" />
             </div>
             <p className="font-display font-bold text-sm">{m.title}</p>
             <p className="text-xs text-slate-400">{m.sub}</p>

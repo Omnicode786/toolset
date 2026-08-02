@@ -1,31 +1,29 @@
-import { ToolMark, WhatsAppIcon } from '../Icons'
+import { WhatsAppIcon } from '../Icons'
 import { linkedinPlans, allTools } from '../data'
 
-const initials = {
-  in: 'in',
-  nav: 'SN',
-  gpt: 'AI',
-  coursera: 'Cr',
-  ms: 'MS',
-  lovable: 'Lv',
-  nordvpn: 'NV',
-  badge: '✓',
+const logoDomains = {
+  'LinkedIn Sales Navigator': 'linkedin.com', 'LinkedIn Premium Career': 'linkedin.com', 'LinkedIn Premium Business': 'linkedin.com',
+  'Kling AI': 'klingai.com', 'ElevenLabs': 'elevenlabs.io', 'ElevenLabs Pro': 'elevenlabs.io', 'Lovable': 'lovable.dev',
+  'Leonardo AI': 'leonardo.ai', 'ChatGPT': 'chatgpt.com', 'vidIQ': 'vidiq.com', 'CapCut Pro': 'capcut.com', 'CapCut': 'capcut.com',
+  'Adobe Creative Cloud': 'adobe.com', 'Cursor Pro': 'cursor.com', 'Claude Pro': 'claude.ai', 'Figma': 'figma.com',
+  'Microsoft Office 365': 'microsoft.com', 'Envato Elements': 'elements.envato.com', 'Windows 11 Key': 'microsoft.com',
+  'Gemini Pro': 'gemini.google.com', 'Veo 3 Pro': 'deepmind.google', 'NordVPN': 'nordvpn.com', 'ExpressVPN': 'expressvpn.com',
+  'Coursera': 'coursera.org', 'Canva Pro': 'canva.com', 'Scribd': 'scribd.com',
 }
-
 function ProductCard({ item }) {
   return (
     <div className="bg-white rounded-2xl border hairline p-6 flex flex-col hover:shadow-lg hover:shadow-slate-200/60 transition-shadow">
-      <ToolMark bg={item.color || item.bg} label={initials[item.icon] || '•'} />
+      <div className="w-11 h-11 rounded-xl border hairline bg-white shadow-sm flex items-center justify-center overflow-hidden"><img src={`https://www.google.com/s2/favicons?domain=${logoDomains[item.title]}&sz=128`} alt={`${item.title} logo`} className="w-8 h-8 object-contain" loading="lazy" /></div>
       <h3 className="mt-4 font-display font-bold text-brand-ink">{item.title}</h3>
-      <p className={`mt-1 text-xs font-semibold ${item.statusColor}`}>{item.status}</p>
-      <p className="mt-3 text-sm text-slate-500 leading-relaxed flex-1">{item.desc}</p>
+      <p className="mt-1 text-sm text-slate-500 leading-relaxed">{item.plan}</p>
+      <p className="mt-3 text-lg font-display font-extrabold text-brand-blue flex-1">{item.price}</p>
 
       <div className="mt-5 flex flex-col gap-2">
         <a href="#" className="text-center rounded-full border border-brand-blue text-brand-blue text-sm font-semibold py-2.5 hover:bg-brand-blue hover:text-white transition-colors">
           Learn More
         </a>
-        <a href="#" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-whatsapp text-white text-sm font-semibold py-2.5 hover:brightness-95 transition">
-          <WhatsAppIcon className="w-4 h-4" /> Chat with live agent
+        <a href={`https://wa.me/9230320465542?text=${encodeURIComponent(`Hello, I am interested in ${item.title} — ${item.plan}. Please share more details.`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-whatsapp text-white text-sm font-semibold py-2.5 hover:brightness-95 transition">
+          <WhatsAppIcon className="w-4 h-4" /> Chat on WhatsApp
         </a>
       </div>
     </div>
@@ -48,7 +46,7 @@ export function LinkedInPlans() {
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {linkedinPlans.map((item) => (
-            <ProductCard key={item.title} item={item} />
+            <ProductCard key={`${item.title}-${item.plan}`} item={item} />
           ))}
         </div>
       </div>
@@ -66,7 +64,7 @@ export function AllTools() {
 
         <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {allTools.map((item) => (
-            <ProductCard key={item.title} item={item} />
+            <ProductCard key={`${item.title}-${item.plan}`} item={item} />
           ))}
         </div>
       </div>
