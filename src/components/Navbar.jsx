@@ -1,44 +1,44 @@
-import { navLinks } from '../data'
-import logo from '../assets/logo.png'
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { Icon } from './Icons';
 
-export default function Navbar() {
+export const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const getClassName = ({ isActive }) => isActive ? 'nav-link active' : 'nav-link';
+
   return (
-    <header className="sticky top-0 z-40 bg-white/90 backdrop-blur border-b hairline">
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 h-24 flex items-center justify-between">
-        <a href="#home" className="flex items-center gap-2.5">
-          <div className="w-14 h-14 flex items-center justify-center">
-            <img
-              src={logo}
-              alt="Logo"
-              className="w-full h-full object-contain block"
-            />
-          </div>
-
-        </a>
-
-        <nav className="hidden md:flex items-center gap-9 font-medium text-sm text-slate-600">
-          {navLinks.map((link, i) => (
-            <a
-              key={link}
-              href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-              className={
-                i === 0
-                  ? "text-brand-blue font-semibold"
-                  : "hover:text-brand-blue transition-colors"
-              }
-            >
-              {link}
-            </a>
-          ))}
+    <header className="site-header">
+      <div className="nav-wrap container">
+        <NavLink to="/" className="brand" aria-label="Tool Set home" end>
+          <span className="brand-logo"><img src="/assets/logo.png" alt="Tool Set logo" /></span>
+        </NavLink>
+        <nav className="desktop-nav" aria-label="Main navigation">
+          <NavLink to="/" className={getClassName} end>Home</NavLink>
+          <NavLink to="/about" className={getClassName}>About Us</NavLink>
+          <NavLink to="/subscriptions" className={getClassName} style={{ fontWeight: 800 }}>Subscriptions</NavLink>
+          <NavLink to="/reviews" className={getClassName}>Reviews</NavLink>
+          <NavLink to="/blogs" className={getClassName}>Blogs</NavLink>
         </nav>
-
-        <a
-          href="#contact"
-          className="hidden sm:inline-flex items-center rounded-full border border-brand-blue text-brand-blue text-sm font-semibold px-5 py-2.5 hover:bg-brand-blue hover:text-white transition-colors"
+        <NavLink to="/contact" className="button button-outline nav-contact">Contact Us</NavLink>
+        <button 
+          className="mobile-menu-button" 
+          type="button" 
+          aria-label="Open menu" 
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
         >
-          Contact Us
-        </a>
+          {menuOpen ? <Icon name="close" size={20} /> : <Icon name="menu" size={20} />}
+        </button>
+      </div>
+      <div className="mobile-menu" hidden={!menuOpen}>
+        <NavLink to="/" className={getClassName} onClick={() => setMenuOpen(false)} end>Home</NavLink>
+        <NavLink to="/about" className={getClassName} onClick={() => setMenuOpen(false)}>About Us</NavLink>
+        <NavLink to="/subscriptions" className={getClassName} onClick={() => setMenuOpen(false)} style={{ fontWeight: 800 }}>Subscriptions</NavLink>
+        <NavLink to="/reviews" className={getClassName} onClick={() => setMenuOpen(false)}>Reviews</NavLink>
+        <NavLink to="/blogs" className={getClassName} onClick={() => setMenuOpen(false)}>Blogs</NavLink>
+        <NavLink to="/contact" className={getClassName} onClick={() => setMenuOpen(false)}>Contact Us</NavLink>
       </div>
     </header>
   );
-}
+};
