@@ -1512,6 +1512,12 @@ h2 {
   font-size: 9px;
 }
 
+@keyframes floatChat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
 .floating-chat {
   position: fixed;
   z-index: 40;
@@ -1526,11 +1532,14 @@ h2 {
   color: #fff;
   background: var(--green);
   box-shadow: 0 12px 30px rgba(21, 112, 61, .28);
-  transition: transform .2s ease;
+  transition: transform .3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow .3s ease;
+  animation: floatChat 3s ease-in-out infinite;
 }
 
 .floating-chat:hover {
-  transform: translateY(-3px);
+  animation: none;
+  transform: translateY(-5px) scale(1.08);
+  box-shadow: 0 15px 35px rgba(21, 112, 61, .45);
 }
 
 .reveal {
@@ -2015,7 +2024,7 @@ h2 {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+ 
   transition: transform 0.3s ease;
 }
 
