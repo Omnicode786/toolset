@@ -1,30 +1,36 @@
-# Tool Set Website
+# Tool Set — Updated Website
 
-A simple static website based closely on the supplied PDF layout, with a slightly adjusted blue/lavender theme and subtle fade-in animations.
+A fully responsive, dependency-free static website for Tool Set.
 
-## Run locally
-
-```bash
-npm run dev
-```
-
-Open `http://localhost:4173`.
-
-## Build
-
-```bash
-npm run build
-```
-
-The production-ready static files will be created in `dist/`.
-
-## Pages
+## Included pages
 
 - Home
 - About Us
-- Subscriptions
-- Reviews + embedded video content
-- Blogs
-- Contact
+- Subscriptions and pricing
+- Customer experience
+- Tool guides
+- Contact / WhatsApp enquiry form
 
-The phone number, email, product availability, testimonials and form are placeholder content and should be replaced before launch.
+## Run locally
+
+Open `index.html` directly in a browser, or serve the folder with any static web server.
+
+Example with Python:
+
+```bash
+python -m http.server 3000
+```
+
+Then open `http://localhost:3000`.
+
+## Editing products and prices
+
+All catalogue products, descriptions, plans and prices are stored in:
+
+`assets/site.js`
+
+Search for `const PRODUCTS` and edit the relevant product object.
+
+## Deployment
+
+The website can be uploaded directly to any static host. A `vercel.json` file is included so Vercel serves clean page URLs.
