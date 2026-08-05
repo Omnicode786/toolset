@@ -9,17 +9,17 @@ import { motion, useScroll, useTransform, useInView, useMotionValueEvent } from 
 export const Hero = () => (
   <section className="container hero-grid section-top">
     <div className="hero-copy panel panel-blue reveal">
-      <h1 >Save Up to 90% on Official Premium Subscriptions</h1>
-      <p className="hero-trust">Trusted by 100k+ Professionals Worldwide</p>
+      <h1 >Premium digital tools for work, learning and creativity</h1>
+      <p className="hero-trust">Clear plans, direct support and straightforward ordering</p>
       <div className="trust-points">
         <span>
           <FaShieldAlt size={15} />
-          Secure Payments
+          Clear Plan Details
         </span>
 
         <span>
           <FaBolt size={15} />
-          Activation in Minutes
+          Order Guidance
         </span>
 
         <span>
@@ -27,7 +27,7 @@ export const Hero = () => (
           WhatsApp Support
         </span>
       </div>
-      <p className="body-copy">Access official premium tools at up to 90% OFF—Save more without compromising quality.</p>
+      <p className="body-copy">Compare AI, design, video, productivity, learning and business tools with the exact plan and price shown before you order.</p>
       <div className="button-row">
         <NavLink to="/subscriptions" className="button button-primary">
           Browse subscriptions <Icon name="arrow" size={16} />
@@ -71,11 +71,11 @@ const TimelineStep = ({ step, index, scrollYProgress }) => {
 
 const InteractiveTimeline = ({ scrollYProgress }) => {
   const steps = [
-    "Choose the plan that suits you best.",
-    "Open the product page and review the delivery method.",
-    "Contact the support team to confirm availability.",
-    "Complete payment using an available method.",
-    "Receive activation guidance and order confirmation."
+    "Choose the exact plan that suits your work.",
+    "Read the tool description, duration and listed price.",
+    "Contact the support team to confirm current availability.",
+    "Complete payment after the order details are confirmed.",
+    "Receive the login, key or activation guidance for your plan."
   ];
 
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
@@ -113,7 +113,7 @@ export const Procedure = () => {
             <div className="reveal delay-1">
               <p className="eyebrow">Procedure</p>
               <h2>How to proceed</h2>
-              <p className="body-copy">Select a product, confirm availability and our support team will guide you through the remaining steps.</p>
+              <p className="body-copy">Choose a listed plan, review its details and contact the team to confirm availability before completing your order.</p>
               <InteractiveTimeline scrollYProgress={scrollYProgress} />
               <NavLink to="/about" className="button button-primary">
                 Read more <Icon name="arrow" size={16} />
@@ -138,9 +138,9 @@ export const Payments = () => {
     <section className="section border-top payment-section">
       <div className="container">
         <div className="section-heading reveal">
-          <p className="eyebrow">100% Secure Checkout</p>
-          <h2>We accept major payment methods</h2>
-          <p>Choose the option that works best for you.</p>
+          <p className="eyebrow">Payment information</p>
+          <h2>Flexible payment options</h2>
+          <p>Confirm the available payment method with the support team when placing your order.</p>
         </div>
         <div className="payment-grid">
           {methods.map(([logo, title, sub], i) => (
@@ -197,8 +197,8 @@ const AnimatedCounter = ({ endValueStr }) => {
 };
 
 export const Stats = ({ 
-  title = "Serving customers across multiple regions", 
-  items = [['15+', 'PRODUCTS'], ['10k+', 'CUSTOMERS'], ['5', 'COUNTRIES'], ['97%', 'HAPPY CLIENTS']] 
+  title = "A focused catalogue for different kinds of digital work", 
+  items = [['30', 'LISTED PLANS'], ['26', 'TOOLS & SERVICES'], ['7', 'WORK CATEGORIES'], ['1', 'DIRECT SUPPORT CHANNEL']] 
 }) => {
   return (
     <section className="container stats-section reveal">
@@ -216,9 +216,9 @@ export const Stats = ({
 
 export const WhyChooseUs = () => {
   const points = [
-    ['Clear options', 'Each listing clearly explains what the plan includes, how it is delivered and what support is available.'],
-    ['Simple process', 'Choose a plan, contact the team, complete payment and receive guided activation without unnecessary steps.'],
-    ['Helpful support', 'Questions are handled through direct support so customers can understand the product before ordering.'],
+    ['Exact plan information', 'Every listing shows the plan name, duration and PKR price so customers can compare options without guessing.'],
+    ['Useful explanations', 'Each tool is described in simple language, including what it does and how it is commonly used in professional work.'],
+    ['Direct human support', 'Customers can confirm availability, delivery method and activation details with the support team before ordering.'],
   ];
   return (
     <section className="section">

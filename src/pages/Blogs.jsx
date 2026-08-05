@@ -7,15 +7,15 @@ import { posts } from '../data/constants';
 export const Blogs = () => {
   return (
     <>
-      <PageHero 
-        eyebrow="Blogs" 
-        title="Short guides for choosing digital tools" 
-        description="Temporary blog content for the additional page. You can replace these cards with real posts later." 
+      <PageHero
+        eyebrow="Blogs"
+        title="Simple guides for choosing digital tools"
+        description="Understand common plan types, compare tools by purpose and make a more informed choice before ordering."
       />
       <section className="section">
         <div className="container blog-grid">
           {posts.map((post, index) => (
-            <article key={index} className="blog-card reveal">
+            <article key={post.title} className="blog-card reveal">
               <div className={`blog-cover cover-${index + 1}`}></div>
               <div className="blog-body">
                 <div className="blog-meta">
@@ -24,8 +24,8 @@ export const Blogs = () => {
                 </div>
                 <h2>{post.title}</h2>
                 <p>{post.excerpt}</p>
-                <NavLink to="/blogs">
-                  Read article <Icon name="arrow" size={15} />
+                <NavLink to="/subscriptions">
+                  Explore relevant plans <Icon name="arrow" size={15} />
                 </NavLink>
               </div>
             </article>

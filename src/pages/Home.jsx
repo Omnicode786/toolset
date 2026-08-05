@@ -2,20 +2,24 @@ import React from 'react';
 import { Hero, Procedure, Payments, Stats, WhyChooseUs } from '../components/Sections';
 import { ProductSection } from '../components/ProductCard';
 import { LinkedInPremiumSection } from '../components/LinkedInPremiumSection';
-import { linkedinPlans, allTools } from '../data/constants';
+import { allTools } from '../data/constants';
 
 export const Home = () => {
+  const featuredTools = allTools
+    .filter((tool, index, tools) => tools.findIndex((item) => item.title === tool.title) === index)
+    .slice(0, 6);
+
   return (
     <>
       <Hero />
       <Procedure />
       <LinkedInPremiumSection limit={3} />
-      <ProductSection 
-        title="All Premium Tools" 
-        description="A simple selection of productivity, learning, security and creative tools." 
-        products={allTools.filter((v, i, a) => a.findIndex(t => t.mark === v.mark) === i).slice(0, 6)} 
-        theme="bluefade" 
-        viewAll={true} 
+      <ProductSection
+        title="All Premium Tools"
+        description="Explore practical AI, design, video, productivity, learning, development and privacy tools with clear plan details."
+        products={featuredTools}
+        theme="bluefade"
+        viewAll
       />
       <Payments />
       <Stats />

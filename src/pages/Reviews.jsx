@@ -6,15 +6,15 @@ import { reviews, videos } from '../data/constants';
 export const Reviews = () => {
   return (
     <>
-      <PageHero 
-        eyebrow="Reviews" 
-        title="Simple feedback from customers" 
-        description="A clean review page with written testimonials and useful embedded videos." 
+      <PageHero
+        eyebrow="Reviews"
+        title="What customers value about the process"
+        description="Clear plan information, direct support and straightforward activation guidance make it easier to order with confidence."
       />
       <section className="section">
         <div className="container review-grid">
-          {reviews.map((review, i) => (
-            <article key={i} className="review-card reveal">
+          {reviews.map((review) => (
+            <article key={`${review.name}-${review.role}`} className="review-card reveal">
               <Icon name="quote" size={24} />
               <div className="stars">★★★★★</div>
               <p>“{review.quote}”</p>
@@ -30,17 +30,17 @@ export const Reviews = () => {
         <div className="container">
           <div className="section-heading reveal">
             <p className="eyebrow">Video resources</p>
-            <h2>Helpful product videos</h2>
-            <p>These embedded videos are temporary examples and can later be replaced with your own customer videos.</p>
+            <h2>See how popular tools are used</h2>
+            <p>These short videos provide an additional overview of selected platforms and their common use cases.</p>
           </div>
           <div className="video-grid">
-            {videos.map((video, i) => (
-              <article key={i} className="video-resource reveal">
-                <iframe 
-                  src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`} 
-                  title={video.title} 
-                  loading="lazy" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            {videos.map((video) => (
+              <article key={video.id} className="video-resource reveal">
+                <iframe
+                  src={`https://www.youtube-nocookie.com/embed/${video.id}?rel=0`}
+                  title={video.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 ></iframe>
                 <div>

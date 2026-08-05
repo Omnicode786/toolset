@@ -184,7 +184,7 @@ h2 {
 .site-header {
   position: sticky;
   z-index: 40;
-  top: 20;
+  top: 0;
   background: rgba(255, 255, 255, .94);
   backdrop-filter: blur(16px);
 }
@@ -2162,4 +2162,151 @@ h2 {
 
 .modal-btn {
   width: 100%;
+}
+
+/* Responsive safeguards — preserves the existing visual design and layout style. */
+@media (max-width: 1199px) {
+  .linkedin-card {
+    padding: 40px 36px;
+  }
+
+  .linkedin-badge-row {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .linkedin-status-badge {
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-wrap {
+    min-height: 78px;
+    gap: 18px;
+  }
+
+  .brand-logo {
+    width: 74px;
+    height: 74px;
+  }
+
+  .section-top {
+    padding-top: 24px;
+    padding-bottom: 64px;
+  }
+
+  .hero-grid {
+    gap: 16px;
+  }
+
+  .hero-image-wrapper img {
+    height: auto !important;
+    max-height: none !important;
+    aspect-ratio: 1 / 1;
+  }
+
+  .linkedin-section {
+    padding: 48px 0;
+  }
+
+  .linkedin-header {
+    margin-bottom: 36px;
+  }
+
+  .linkedin-card {
+    height: auto;
+    min-height: 435px;
+    padding: 32px 24px;
+    border-radius: 30px;
+  }
+
+  .linkedin-card-title {
+    height: auto;
+    min-height: 48px;
+  }
+
+  .linkedin-card-desc {
+    height: auto;
+    min-height: 67px;
+  }
+
+  .linkedin-actions,
+  .linkedin-actions .btn-outline-sky,
+  .linkedin-actions .btn-solid-whatsapp {
+    width: 100%;
+  }
+
+  .linkedin-status-badge {
+    width: 100%;
+  }
+
+  .linkedin-price-badge {
+    width: 100%;
+  }
+
+  .linkedin-modal-backdrop {
+    padding: 14px;
+  }
+
+  .linkedin-modal-card {
+    max-height: calc(100dvh - 28px);
+    overflow-y: auto;
+  }
+
+  .linkedin-modal-header,
+  .linkedin-modal-body {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .contact-list strong,
+  .footer-grid p,
+  .footer-grid a {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-form select {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .hero-copy {
+    padding: 26px 20px;
+  }
+
+  .page-hero {
+    padding: 42px 18px;
+  }
+
+  .linkedin-container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .linkedin-card {
+    padding: 28px 20px;
+    border-radius: 26px;
+  }
+
+  .contact-panel,
+  .contact-form,
+  .value-card,
+  .review-card,
+  .blog-body {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .footer-cta {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
 }
